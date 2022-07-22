@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import DynamicHeader from '../components/header.server'
 
-export default function Home() {
+export default function StreamPage() {
   return (
     <>
     <Suspense fallback={"Loading..."}>
