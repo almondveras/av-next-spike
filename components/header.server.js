@@ -1,17 +1,29 @@
 import { useEffect, useState } from "react"
 
+const API_URL = "https://av-next-spike.vercel.app/api/header"
+let cache
+
+async function fetchData() {
+  const response = await fetch(API_URL)
+  return response.json()
+}
+
+function useData() {
+  if (!cache) {
+    let data
+    let promise
+    cache = () => {
+      if (data !== undefined) return data
+      if (!promise) promise = fetchData().then((r) => (data = r))
+      throw promise
+    }
+  }
+  return cache()
+}
+
+
 const DynamicHeader = () => {
-  const apiKey = "https://av-next-spike.vercel.app/api/header"
-  // const data = useData(apiKey, key => fetch(key).then(r => r.json())
-  // const apiKey = 'https://nextjs-spike-cc43nhke3-nextjs-contino-spike.vercel.app/api/header'
-  const [data, setData] = useState()
-  useEffect(() => {
-    fetch(apiKey).then(r => {
-      const body = r.json()
-      console.log(body)
-      return body
-    }).then(r => {setData(r)})
-  }, [])
+  const data = useData()
   console.log(data)
   return (
     <div>I&apos;m a header with data {JSON.stringify(data)}</div>
