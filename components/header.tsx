@@ -18,7 +18,7 @@ const DynamicHeader = () => {
   }, [])
   console.log(data)
   return (
-    <div>I&apos;m a header with data</div>
+    <div>I&apos;m a header with data {data}</div>
   )
 }
 
