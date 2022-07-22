@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-import DynamicHeader from '../components/header.server'
+import DynamicHeader from '../components/header'
 
 // const DynamicHeader = dynamic(() => import('../components/header'), {
 //   suspense: true,
