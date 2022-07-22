@@ -1,5 +1,4 @@
 import React from "react"
-import { useEffect, useState } from "react"
 
 const API_URL = "https://av-next-spike.vercel.app/api/header"
 let cache
@@ -22,13 +21,10 @@ function useData() {
   return cache()
 }
 
-
-const Header = () => {
+export default function Header() {
   const data = useData()
   console.log(data)
   return (
     <div>I&apos;m a header with data {JSON.stringify(data)}</div>
   )
 }
-
-export default Header
