@@ -2,8 +2,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-// This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
+  // add a 2sec delay for specific api paths
   await new Promise(r => setTimeout(r, 2000))
   return NextResponse.next()
 }
