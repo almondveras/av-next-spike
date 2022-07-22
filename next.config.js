@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   experimental: {
     runtime: 'experimental-edge',
-    serverComponents: true,
+    serverComponents: false,
   },
   async headers() {
     return [
