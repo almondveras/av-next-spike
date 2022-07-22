@@ -1,12 +1,12 @@
 import React from 'react'
 import { Suspense } from 'react'
-import DynamicHeader from '../components/header.server'
+import Header from '../components/header.server'
 
 export default function RSC() {
   return (
     <>
       <Suspense fallback={"Loading..."}>
-        <DynamicHeader />
+        <Header />
       </Suspense>
       <p>
       The rest already loaded

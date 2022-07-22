@@ -23,7 +23,7 @@ function useData() {
 }
 
 
-const DynamicHeader = () => {
+const Header = () => {
   const data = useData()
   console.log(data)
   return (
@@ -31,4 +31,4 @@ const DynamicHeader = () => {
   )
 }
 
-export default DynamicHeader
+export default Header
