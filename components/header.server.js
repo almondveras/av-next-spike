@@ -1,3 +1,4 @@
+import React from "react"
 import { useEffect, useState } from "react"
 
 const API_URL = "https://av-next-spike.vercel.app/api/header"
