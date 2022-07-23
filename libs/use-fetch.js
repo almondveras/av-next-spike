@@ -51,10 +51,10 @@ export function useData(key, fetcher, opts = {}) {
       const timeDiff = now - cache[key].timestamp
 
       // revalidate
-      if (timeDiff > opts.revalidate * 1000) {
-        cache[key].data = undefined
-        cache[key].promise = undefined
-      }
+      // if (timeDiff > opts.revalidate * 1000) {
+      //   cache[key].data = undefined
+      //   cache[key].promise = undefined
+      // }
     }
   }
 
