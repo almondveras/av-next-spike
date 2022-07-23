@@ -1,4 +1,3 @@
-import React from 'react'
 import { Suspense } from 'react'
 import Header from '../components/header.server'
 
@@ -13,4 +12,12 @@ export default function RSC() {
       </p>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  return {
+    props: {
+      dummy: 'hi'
+    },
+  }
 }
