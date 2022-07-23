@@ -1,5 +1,4 @@
 import { useData } from "../libs/use-fetch"
-import HeaderUI from "./headerUI.server"
 
 // const API_URL = "https://av-next-spike.vercel.app/api/header"
 // let cache
@@ -35,6 +34,8 @@ export default function Header() {
   console.log(data)
   
   return (
-    <HeaderUI data={data} />
+    <div>
+      Im a header with data {JSON.stringify(data)}
+    </div>
   )
 }

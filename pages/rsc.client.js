@@ -16,10 +16,10 @@ export default function RSC({dummy}) {
   )
 }
 
-export async function getServerSideProps() {
-  return {
-    props: {
-      dummy: 'hi'
-    },
-  }
-}
+// export async function getServerSideProps() {
+//   return {
+//     props: {
+//       dummy: 'hi'
+//     },
+//   }
+// }
