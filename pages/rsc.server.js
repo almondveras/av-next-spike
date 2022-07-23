@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Header from '../components/header.server'
 
-export default function RSC() {
+export default function RSC({dummy}) {
   return (
     <>
       <Suspense fallback={"Loading..."}>

@@ -1,4 +1,4 @@
 
-export default (req: any, res: any) => {
+export default function HeaderAPI(req: any, res: any) {
   res.send({message: 'helo'})
 }
