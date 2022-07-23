@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   experimental: {
-    runtime: 'nodejs',
+    runtime: 'experimental-edge',
     serverComponents: true,
   },
   async headers() {
