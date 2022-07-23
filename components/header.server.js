@@ -29,8 +29,8 @@ export default function Header() {
   // averas need to understand why and how we're using useData
   const apiKey = `/api/header`
   const data = useData(apiKey, (key) => fetch(key).then(r => r.json()), {
-          revalidate: 1,
-        })
+    revalidate: 3,
+  })
 
   console.log(data)
   
