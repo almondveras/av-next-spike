@@ -12,7 +12,7 @@ export default function Content() {
       boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
       transition: '0.3s',
     }}>
-      <div>Im a client rendered component!</div>
+      <div>Im a client rendered component called inside a server component!</div>
       <StatefulContent />
     </div>
   )  
