@@ -2,10 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // experimental: {
-  //   runtime: 'experimental-edge',
-  //   serverComponents: true,
-  // },
+  experimental: {
+    serverComponents: true,
+  },
 }
 
 module.exports = nextConfig

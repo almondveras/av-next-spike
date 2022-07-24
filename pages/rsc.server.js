@@ -9,4 +9,5 @@ export default function RSC() {
 
 export const config = {
   runtime: 'experimental-edge',
+  serverComponents: true
 }
