@@ -1,17 +1,20 @@
 import React from "react"
 import { useState } from "react"
 
+
 export default function StatefulContent() {
 
   const [data, setData] = useState('')
   return (
-    <div className="stateful-content">
+    <div>
       <button onClick={() => {
         setData(data ? '': 'State works!!')
       }}>
-        Click to update
+        Click me to update the state
       </button>
-      <h3>{data}</h3>
+      <p>
+        <strong>{data}</strong>
+      </p>
     </div>
   )
 }

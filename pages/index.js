@@ -1,5 +1,10 @@
 import React from "react"
 
-const HomePage = () => <div>HomePage</div>
+const HomePage = () => {
+  return (
+    <div>
+      HomePage
+    </div>)
+}
 
 export default HomePage
