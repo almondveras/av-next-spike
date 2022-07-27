@@ -1,7 +1,7 @@
-import React from "react"
-import StatefulContent from "./statefulContent.client"
+import React, {useState} from "react"
 
 export default function Content() { 
+  const [data, setData] = useState('')
   return (
     <div style={{
       width: '80%',
@@ -12,8 +12,17 @@ export default function Content() {
       boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
       transition: '0.3s',
     }}>
-      <div>I'm a client rendered component called inside a server component!</div>
-      <StatefulContent />
+      <div>I'm a client-rendered server component!</div>
+      <div>
+      <button onClick={() => {
+        setData(data ? '': 'State works!!')
+      }}>
+        Click me to update the state
+      </button>
+      <p>
+        <strong>{data}</strong>
+      </p>
+    </div>
     </div>
   )  
 }

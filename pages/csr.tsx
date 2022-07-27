@@ -11,7 +11,7 @@ const CSRPage = () => {
   
   return (
     <div>
-      <div>I'm a Server Side Rendered (SSR) page, the <strong>entire page</strong> is rendered on the server and passed as HTML to the browser!</div>
+      <div>I'm a Client Side Rendered (CSR) page, averas to add!</div>
       <div>
         I'm getting a random advice:{' '}{advice}
       </div>
