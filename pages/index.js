@@ -21,13 +21,13 @@ const HomePage = () => {
       </Link>
       </li>
       <li>
-      <Link href={'/ssr-react-query'}>
-        You can also combine SSG, SSR and CSR! This one uses SSR + CSR (via react-query and GraphQL)
+      <Link href={'/rsc'}>
+        React Server Components - RSC (experimental!)
       </Link>
       </li>
       <li>
-      <Link href={'/rsc'}>
-        React Server Components - RSC (experimental!)
+      <Link href={'/ssr-react-query'}>
+        You can also combine SSG/SSR and CSR! This one uses SSR + CSR (via react-query and GraphQL)
       </Link>
       </li>
       <li>

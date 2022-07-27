@@ -5,8 +5,9 @@ import Content from "../components/content.client"
 export default function RSC() {
   return (
     <>
-    <h1>Welcome to React Server Components</h1>
+      <h1>Welcome to React Server Components</h1>
       <Content />
+      {/* Suspense is a React 18 feature */}
       <Suspense fallback={'Loading...'}>
         <Profile />
       </Suspense>

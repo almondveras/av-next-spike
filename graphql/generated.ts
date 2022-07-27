@@ -5,11 +5,11 @@ export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K]
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 
-export function fetcher<TData, TVariables>(endpoint: string, requestInit: RequestInit, query: string, variables?: TVariables) {
+function fetcher<TData, TVariables>(query: string, variables?: TVariables) {
   return async (): Promise<TData> => {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      ...requestInit,
+    const res = await fetch("https://rickandmortyapi.com/graphql", {
+    method: "POST",
+    ...({"headers":{"Content-Type":"application/json"}}),
       body: JSON.stringify({ query, variables }),
     });
 
@@ -254,12 +254,16 @@ export const useCharactersQuery = <
       TData = CharactersQuery,
       TError = unknown
     >(
-      dataSource: { endpoint: string, fetchParams?: RequestInit },
       variables?: CharactersQueryVariables,
       options?: UseQueryOptions<CharactersQuery, TError, TData>
     ) =>
     useQuery<CharactersQuery, TError, TData>(
       variables === undefined ? ['Characters'] : ['Characters', variables],
-      fetcher<CharactersQuery, CharactersQueryVariables>(dataSource.endpoint, dataSource.fetchParams || {}, CharactersDocument, variables),
+      fetcher<CharactersQuery, CharactersQueryVariables>(CharactersDocument, variables),
       options
     );
+
+useCharactersQuery.getKey = (variables?: CharactersQueryVariables) => variables === undefined ? ['Characters'] : ['Characters', variables];
+;
+
+useCharactersQuery.fetcher = (variables?: CharactersQueryVariables) => fetcher<CharactersQuery, CharactersQueryVariables>(CharactersDocument, variables);

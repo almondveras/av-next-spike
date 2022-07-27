@@ -7,4 +7,11 @@ generates:
       - typescript-operations
       - typescript-react-query
     config:
-      fetcher: fetch
+      fetcher:
+        endpoint: 'https://rickandmortyapi.com/graphql'
+        fetchParams:
+          headers:
+            Content-Type: application/json
+      exposeQueryKeys: true
+      exposeFetcher: true
+      legacyMode: true

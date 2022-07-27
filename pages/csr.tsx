@@ -13,7 +13,8 @@ const CSRPage = () => {
     <div>
       <div>I'm a Client Side Rendered (CSR) page, averas to add!</div>
       <div>
-        I'm getting a random advice:{' '}{advice}
+        I'm getting a random advice:
+        <p>{advice}</p>
       </div>
     </div>
   )

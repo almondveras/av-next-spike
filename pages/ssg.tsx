@@ -1,5 +1,3 @@
-import useSWR from "swr";
-
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 interface SSGPageProps {
@@ -10,9 +8,12 @@ interface SSGPageProps {
 const SSGPage = ({staticProp, advice}: SSGPageProps) => {
   return (
     <>
-      <div>
+      <h2>
+        Welcome to Static Site Generated (SSG)
+      </h2>
+      <p>
         I'm a Server Site Generated page, HTML is sent from the CDN!
-      </div>
+      </p>
       <p>
         I recieved a prop: {staticProp}
       </p>
@@ -25,7 +26,6 @@ const SSGPage = ({staticProp, advice}: SSGPageProps) => {
 
 export async function getStaticProps () {
   const url = "https://api.adviceslip.com/advice"
-  // const { data: advice, error } = useSWR(url, fetcher)
   const data = await fetcher(url)
 
   return {

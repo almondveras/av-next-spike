@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 
 import Content from './content.client'
-import Profile from './advice.server'
+import Advice from './advice.server'
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
       <h1>Welcome to React Server Components</h1>
       <Content />
       <Suspense fallback={'Loading...'}>
-        <Profile />
+        <Advice />
       </Suspense>
     </div>
   )
