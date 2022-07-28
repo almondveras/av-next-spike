@@ -20,7 +20,7 @@ const RerenderPage = () => {
       <h2>Welcome to Concurrent React!</h2>
       <h5>I rendered {renderCount.current} times!</h5>
       <button onClick={handleClick}>
-        Click me to update state!
+        Click me to update two states!
       </button>
     </div>
   )
