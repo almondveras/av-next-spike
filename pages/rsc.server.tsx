@@ -1,5 +1,5 @@
 import React, { Suspense } from "react"
-import Profile from "../components/advice.server"
+import Advice from "../components/advice.server"
 import Content from "../components/content.client"
 
 export default function RSC() {
@@ -9,7 +9,7 @@ export default function RSC() {
       <Content />
       {/* Suspense is a React 18 feature */}
       <Suspense fallback={'Loading...'}>
-        <Profile />
+        <Advice />
       </Suspense>
     </>
   )

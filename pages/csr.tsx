@@ -2,8 +2,6 @@ import React from "react";
 import { Suspense } from "react"
 import CSRCharacters from "../components/CSRCharacters";
 
-
-
 const CSRPage = () => {
   return (
     <div>

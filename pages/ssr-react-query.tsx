@@ -3,6 +3,7 @@ import { dehydrate, QueryClient, useQuery } from 'react-query'
 import gql from 'graphql-tag'
 import { useCharactersQuery } from '../graphql/generated'
 import Character from '../components/character'
+import { Suspense } from 'react'
  
 gql`
 query Characters {
@@ -33,7 +34,9 @@ interface SSRReactQueryPageProps {
 }
 
 const SSRReactQueryPage = ({}: SSRReactQueryPageProps) => {
-  const {data} = useCharactersQuery()
+  const {data} = useCharactersQuery({}, {
+    suspense: true
+  })
   const charactersData = data?.characters?.results
 
   return (
@@ -43,9 +46,11 @@ const SSRReactQueryPage = ({}: SSRReactQueryPageProps) => {
       <div>
         Rick and Morty characters from graphql API:{' '}
       </div>
-      {
-        charactersData?.map((character) => <Character key={character?.id} {...character} />)
-      }
+      <Suspense fallback={'Loading...'}>
+        {
+          charactersData?.map((character) => <Character key={character?.id} {...character} />)
+        }
+      </Suspense>
     </div>
   )
 }
