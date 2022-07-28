@@ -1,17 +1,14 @@
 import { dehydrate, QueryClient, useQuery } from 'react-query'
-import { ReactQueryDevtools } from 'react-query-devtools'
 
 import gql from 'graphql-tag'
 import { useCharactersQuery } from '../graphql/generated'
+import Character from '../components/character'
  
 gql`
 query Characters {
     characters {
       results {
         created
-        episode {
-          name
-        }
         gender
         id
         image
@@ -29,29 +26,26 @@ query Characters {
     }
   }
 `
-const endpoint = 'https://rickandmortyapi.com/graphql'
+
+
 
 interface SSRReactQueryPageProps {
 }
 
-
 const SSRReactQueryPage = ({}: SSRReactQueryPageProps) => {
   const {data} = useCharactersQuery()
-
-  // This query was not prefetched on the server and will not start
-  // fetching until on the client, both patterns are fine to mix
-  // const { data: otherData } = useQuery('csr-useCharacters', useCharacters)
+  const charactersData = data?.characters?.results
 
   return (
     <div>
+      <h2>Welcome to SSR + Codegen + React-query</h2>
       <div>I'm a Server Side Rendered (SSR) page, queried via react-query.</div>
       <div>
         Rick and Morty characters from graphql API:{' '}
       </div>
-      <p>
-        {data ? JSON.stringify(data): 'Loading...'}
-      </p>
-      <ReactQueryDevtools />
+      {
+        charactersData?.map((character) => <Character key={character?.id} {...character} />)
+      }
     </div>
   )
 }
@@ -59,12 +53,6 @@ const SSRReactQueryPage = ({}: SSRReactQueryPageProps) => {
 export async function getServerSideProps() {
   const queryClient = new QueryClient() 
   await queryClient.prefetchQuery(useCharactersQuery.getKey(), () => useCharactersQuery.fetcher({}))
-  // await queryClient.prefetchQuery(useCharactersQuery.getKey(), () => useCharactersQuery.fetcher({
-  //   endpoint,
-  //   fetchParams: {
-  //     headers: [['content-type', 'application/json']]
-  //   }
-  // }))
 
   return {
     props: {

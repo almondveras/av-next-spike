@@ -222,7 +222,7 @@ export type QueryLocationsByIdsArgs = {
 export type CharactersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type CharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', results?: Array<{ __typename?: 'Character', created?: string | null, gender?: string | null, id?: string | null, image?: string | null, name?: string | null, species?: string | null, status?: string | null, type?: string | null, episode: Array<{ __typename?: 'Episode', name?: string | null } | null>, location?: { __typename?: 'Location', name?: string | null } | null, origin?: { __typename?: 'Location', name?: string | null } | null } | null> | null } | null };
+export type CharactersQuery = { __typename?: 'Query', characters?: { __typename?: 'Characters', results?: Array<{ __typename?: 'Character', created?: string | null, gender?: string | null, id?: string | null, image?: string | null, name?: string | null, species?: string | null, status?: string | null, type?: string | null, location?: { __typename?: 'Location', name?: string | null } | null, origin?: { __typename?: 'Location', name?: string | null } | null } | null> | null } | null };
 
 
 export const CharactersDocument = `
@@ -230,9 +230,6 @@ export const CharactersDocument = `
   characters {
     results {
       created
-      episode {
-        name
-      }
       gender
       id
       image

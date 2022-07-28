@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react"
+import React from "react";
+import { Suspense } from "react"
+import CSRAdvice from "../components/CSRCharacters";
+
+
 
 const CSRPage = () => {
-  const [advice, setAdvice] = useState('')
-
-  useEffect(() => {
-    const url = "https://api.adviceslip.com/advice"
-    fetch(url).then(r => r.json()).then(r => setAdvice(r.slip.advice))
-
-  }, [])
-  
   return (
     <div>
-      <div>I'm a Client Side Rendered (CSR) page, averas to add!</div>
-      <div>
-        I'm getting a random advice:
-        <p>{advice}</p>
-      </div>
+      <h2>Welcome to Client Side Rendering!</h2>
+      <div>I'm a Client Side Rendered (CSR) page where data is fetched on the client-side!</div>
+      <Suspense fallback={'Loading...'}>
+        <CSRAdvice />
+      </Suspense>
     </div>
   )
 }

@@ -6,34 +6,39 @@ const HomePage = () => {
     <>
       <h1>Welcome to Next.js!</h1>
       <li>
-        <Link href={'/ssg'}>
-          Static Site Generated - SSG
+          <Link href={'/ssg'}>
+            Static Site Generated - SSG
+          </Link>
+      </li>
+      <li>
+        <Link href={'/ssr'}>
+          Server Side Rendered - SSR
         </Link>
       </li>
       <li>
-      <Link href={'/ssr'}>
-        Server Side Rendered - SSR
-      </Link>
+        <Link href={'/csr'}>
+          Client Side Rendered - CSR
+        </Link>
       </li>
       <li>
-      <Link href={'/csr'}>
-        Client Side Rendered - CSR
-      </Link>
+        <Link href={'/rsc'}>
+          React Server Components - RSC (experimental!)
+        </Link>
       </li>
       <li>
-      <Link href={'/rsc'}>
-        React Server Components - RSC (experimental!)
-      </Link>
+        <Link href={'/ssr-react-query'}>
+          You can also combine SSG/SSR and CSR! This one uses SSR + CSR (via react-query and GraphQL)
+        </Link>
       </li>
       <li>
-      <Link href={'/ssr-react-query'}>
-        You can also combine SSG/SSR and CSR! This one uses SSR + CSR (via react-query and GraphQL)
-      </Link>
+        <Link href={'/rerender'}>
+          Concurrent React
+        </Link>
       </li>
       <li>
-      <Link href={'/non-existent-path'}>
-        Where do non existent paths go?
-      </Link>
+        <Link href={'/non-existent-path'}>
+          Where do non existent paths go?
+        </Link>
       </li>
     </>
   )
