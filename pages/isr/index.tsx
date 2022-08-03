@@ -1,6 +1,6 @@
 import styles from '../../styles/Pages.module.css'
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
     const res = await fetch(`https://v2.jokeapi.dev/joke/Programming?amount=20`)
     const data = await res.json()
     return {

@@ -2,8 +2,19 @@ import { useEffect, useState } from 'react'
 
 import styles from '../../styles/Pages.module.css'
 
+interface Joke {
+    joke?: string
+    setup?: string
+    delivery?: string
+}
+
+interface JokesResponse {
+    error: boolean
+    jokes: Joke[]
+}
+
 function PageCsr() {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<JokesResponse>()
     const [isLoading, setLoading] = useState(false)
 
     useEffect(() => {
@@ -11,7 +22,7 @@ function PageCsr() {
         fetch(`https://v2.jokeapi.dev/joke/Programming?amount=20`)
             .then((res) => res.json())
             .then((data) => {
-                setData(data)
+                setData(data as JokesResponse)
                 setLoading(false)
             })
     }, [])

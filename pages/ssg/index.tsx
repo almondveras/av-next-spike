@@ -1,13 +1,24 @@
 import styles from '../../styles/Pages.module.css'
 
-export async function getStaticProps(context) {
+interface Joke {
+    joke?: string
+    setup?: string
+    delivery?: string
+}
+
+interface JokesResponse {
+    error: boolean
+    jokes: Joke[]
+}
+
+export async function getStaticProps() {
     const res = await fetch(`https://v2.jokeapi.dev/joke/Programming?amount=20`)
     const data = await res.json()
 
     return { props: { data } }
 }
 
-function PageSsg({ data }) {
+function PageSsg({ data }: { data: JokesResponse}) {
     return (
         <div className={styles.container}>
             <h1 className={styles.header}>Static Site Generation</h1>
