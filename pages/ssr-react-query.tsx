@@ -55,7 +55,9 @@ const SSRReactQueryPage = ({}: SSRReactQueryPageProps) => {
   )
 }
 
+// exporting getServerSideProps in Next.js implies this page is Server Side Rendered
 export async function getServerSideProps() {
+  // we can use SSR with react-query + codegen
   const queryClient = new QueryClient() 
   await queryClient.prefetchQuery(useCharactersQuery.getKey(), () => useCharactersQuery.fetcher({}))
 

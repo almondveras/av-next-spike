@@ -5,8 +5,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
@@ -14,21 +12,47 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Demo pages
 
-To learn more about Next.js, take a look at the following resources:
+```
+/     - root page
+/ssg  - Static Site Generated page
+/ssr  - Server Side Rendered page
+/ssr-react-query  - SSR + codegen + react query
+/rerender - Concurrent React demo
+/rsc  - React Server Components demo
+/api/revalidate - On-demand Incremental Static Regeneration (ISR)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Codegen
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Run `yarn generate` to run graphql codegen. Codegen config is in `codegen.yaml`.
 
-## Deploy on Vercel
+## On demand Incremental Static Regeneration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Set an environment variable for `MY_SECRET_TOKEN` in `.env`. For example
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+MY_SECRET_TOKEN=IAMASECRETTOKEN
+```
+
+Your app that triggers revalidation can hit the revalidation API `/api/revalidate` while passing the token. When running locally, you can do something like:
+
+```
+curl --request GET \
+  --url 'http://localhost:3000/api/revalidate?secret=IAMASECRETTOKEN'
+```
+
+In this demo, observe how `/ssg` page will be different everytime `/api/revalidate` is hit. See `pages/api/revalidate.ts` for the revalidation logic.
+
+Note: Run `yarn build && yarn start` to simulate production build and execute prerendering for SSG pages. If you're running `yarn dev`, all calls will be server rendered.
+
+## Codegen
+
+This demo uses [GraphQL Code Generator](https://www.graphql-code-generator.com/docs/getting-started) to generate types and hooks we can use for fetching
+
+## Known issues
+
+Next version used is `12.1.7-canary.52` as Server Components is still unstable. Upgrading to the latest version will break Server Components.

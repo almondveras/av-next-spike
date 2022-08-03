@@ -19,6 +19,7 @@ const SSRPage = ({advice}: SSRPageProps) => {
   )
 }
 
+// exporting getServerSideProps in Next.js implies this page is Server Side Rendered
 export async function getServerSideProps() {
   const url = "https://api.adviceslip.com/advice"
   const advice = await fetch(url)

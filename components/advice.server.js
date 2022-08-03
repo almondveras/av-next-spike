@@ -2,6 +2,7 @@ import React from "react"
 import fetchData from "../lib/fetch-data"
 import useData from "../lib/use-data"
 
+// This is a server-rendered Server Component
 export default function Advice() {
   const url = "https://api.adviceslip.com/advice"
 

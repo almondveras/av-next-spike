@@ -6,12 +6,13 @@ const RerenderPage = () => {
   const renderCount = useRef(1);
 
   const handleClick = () => {
+    // demo concurrent react by updating state twice
+    // react 18 will rerender only once
     setAState('new')
     setAnotherState('new')
   }
 
   useEffect(() => {
-    // Render count change does not cause rerender as a state change.
     renderCount.current = renderCount.current + 1;
   });
 

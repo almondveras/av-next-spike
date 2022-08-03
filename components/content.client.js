@@ -1,6 +1,7 @@
 import React from "react"
 import StatefulContent from './statefulContent.client'
 
+// This is a client-rendered Server Component
 export default function Content() { 
   return (
     <div style={{

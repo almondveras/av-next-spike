@@ -24,6 +24,7 @@ const SSGPage = ({staticProp, advice}: SSGPageProps) => {
   )
 }
 
+// exporting getStaticProps in Next.js implies this page is using Static Site Generation
 export async function getStaticProps () {
   const url = "https://api.adviceslip.com/advice"
   const data = await fetcher(url)
