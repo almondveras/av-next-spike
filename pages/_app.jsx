@@ -1,4 +1,7 @@
+import '../styles/globals.css'
+
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+
 import React from 'react'
 
 function MyApp({ Component, pageProps }) {
